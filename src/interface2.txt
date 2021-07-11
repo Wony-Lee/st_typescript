@@ -1,0 +1,39 @@
+// 코드 개선하기
+interface Shape {
+    getArea(): number;
+}
+
+// 자동화 해주기
+class Circle implements Shape {
+    // private 혹은 public 으로 선언해주면 된다.
+    constructor(public radius: number) {}
+
+    getArea() {
+        return this.radius * this.radius * Math.PI;
+    }
+}
+
+class Rectangle implements Shape {
+    constructor(private width: number, private height: number) {
+        this.width = width;
+        this.height = height;
+    }
+
+    getArea() {
+        return this.width * this.height;
+    }
+}
+
+const circle = new Circle(5);
+//public 일 경우
+circle.radius; // radius 를 조회할 수 있게된다.
+
+const rectangle = new Rectangle(2, 5);
+//private 일 경우
+//rectangle 조회 불가능
+
+const shapes: Shape[] = [circle, rectangle];
+
+shapes.forEach((shape) => {
+    console.log(shape.getArea());
+});
