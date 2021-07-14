@@ -1,6 +1,5 @@
 // 타입의 호환을 맞춰야할 때 사용한다.
 /* 사용 전 
-
 function merge(a: any, b: any) {
     return {
         ...a,
@@ -28,4 +27,5 @@ function wrap<T>(param: T) {
     };
 }
 
-const wrapped = wrap(10);
+const wrapped = wrap(10); // "10" 을 입력하게되면 타입이 string 으로 추론
+// wrapped.param 타입을 확인 가능
